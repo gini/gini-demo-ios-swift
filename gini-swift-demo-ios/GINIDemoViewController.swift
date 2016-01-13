@@ -81,7 +81,7 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
         }).continueWithSuccessBlock({ (task: BFTask!) -> AnyObject! in
             return manager?.createDocumentWithFilename(fileName, fromImage: document)
         }).continueWithSuccessBlock({ (task: BFTask!) -> AnyObject! in
-            delegate.didProgressWithMessage("Anaylse document")
+            delegate.didProgressWithMessage("Analyse document")
             giniDocument = task.result as? GINIDocument
             documentId = giniDocument?.documentId
             print("documentId: \(documentId)")
@@ -134,7 +134,7 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
     
     func storeImage(image: UIImage, fileName: String, compression: Float) {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let filePath = paths[0].stringByAppendingString(fileName)
+        let filePath = paths[0].stringByAppendingString("/\(fileName)")
         let compressionStandardized = CGFloat(compression / Float(100))
         if let imageData = UIImageJPEGRepresentation(image, compressionStandardized) {
             if !imageData.writeToFile(filePath, atomically: true) {
