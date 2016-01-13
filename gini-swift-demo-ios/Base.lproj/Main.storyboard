@@ -1,25 +1,147 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5rt-cB-9RN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Gini Demo-->
+        <scene sceneID="XfN-tT-7hm">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dhg-fG-giL" customClass="GINIDemoViewController" customModule="gini_swift_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="hfX-sY-Dtn"/>
+                        <viewControllerLayoutGuide type="bottom" id="STv-Dk-lRc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="iSP-ah-Owq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GiniLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DK7-va-zBo">
+                                <rect key="frame" x="112" y="80" width="96" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="URU-a1-UY5"/>
+                                    <constraint firstAttribute="height" constant="60" id="gkK-Fn-13f"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2x-ps-cQ4">
+                                <rect key="frame" x="55" y="484" width="210" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Yfz-X1-a1u"/>
+                                    <constraint firstAttribute="width" constant="210" id="y20-mP-ha0"/>
+                                </constraints>
+                                <state key="normal" image="GiniStartButton">
+                                    <color key="titleColor" red="0.0" green="0.61960784310000006" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGiniVisionModule:" destination="dhg-fG-giL" eventType="touchUpInside" id="GXo-n7-Vjm"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GiniDemoStartHelp" translatesAutoresizingMaskIntoConstraints="NO" id="TMF-ha-PDp">
+                                <rect key="frame" x="0.0" y="97" width="320" height="415"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TMF-ha-PDp" secondAttribute="height" multiplier="64:83" id="Prb-xG-Qct"/>
+                                    <constraint firstAttribute="width" constant="320" id="xBf-Y7-jTj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="d2x-ps-cQ4" firstAttribute="centerX" secondItem="iSP-ah-Owq" secondAttribute="centerX" id="7U0-KV-MRD"/>
+                            <constraint firstItem="TMF-ha-PDp" firstAttribute="centerY" secondItem="iSP-ah-Owq" secondAttribute="centerY" constant="20" id="8Gw-SJ-mVK"/>
+                            <constraint firstItem="DK7-va-zBo" firstAttribute="top" secondItem="iSP-ah-Owq" secondAttribute="topMargin" constant="80" id="HjJ-9U-Kb0"/>
+                            <constraint firstItem="TMF-ha-PDp" firstAttribute="centerX" secondItem="iSP-ah-Owq" secondAttribute="centerX" id="Vti-IZ-bSn"/>
+                            <constraint firstItem="DK7-va-zBo" firstAttribute="centerX" secondItem="iSP-ah-Owq" secondAttribute="centerX" id="fwa-sJ-cZr"/>
+                            <constraint firstItem="STv-Dk-lRc" firstAttribute="top" secondItem="d2x-ps-cQ4" secondAttribute="bottom" constant="40" id="q4B-cM-hDY"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Gini Demo" id="LNf-nx-ulm"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="a9z-t7-22e" kind="show" identifier="documentDetailSegue" id="vUT-nH-Q8R">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z60-rV-cyF" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="677" y="-228"/>
+        </scene>
+        <!--Demo Document Table View Controller-->
+        <scene sceneID="SrC-Jj-TEz">
+            <objects>
+                <tableViewController storyboardIdentifier="documentDetailViewController" id="a9z-t7-22e" customClass="GINIDemoDocumentTableViewController" customModule="gini_swift_demo_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lt1-CE-CPA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="documentDetailCell" textLabel="3B3-kZ-g0s" detailTextLabel="fYg-5f-U3w" style="IBUITableViewCellStyleSubtitle" id="pqU-75-mgj">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pqU-75-mgj" id="FOI-7J-OZd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3B3-kZ-g0s">
+                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fYg-5f-U3w">
+                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a9z-t7-22e" id="D8O-b7-0M8"/>
+                            <outlet property="delegate" destination="a9z-t7-22e" id="aDj-QO-ONl"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qj0-bo-LbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="-228"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KTQ-Gn-fcv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5rt-cB-9RN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M3g-nh-g68">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.61960784310000006" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dhg-fG-giL" kind="relationship" relationship="rootViewController" id="zXu-d8-6Zc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d76-Qs-ciB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="201" y="-228"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GiniDemoStartHelp" width="320" height="415"/>
+        <image name="GiniLogo" width="96" height="60"/>
+        <image name="GiniStartButton" width="210" height="44"/>
+    </resources>
 </document>

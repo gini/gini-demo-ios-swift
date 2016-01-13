@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import Gini_iOS_SDK
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class GINIDemoAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // GiniSDK property to have global access to the Gini API
+    var giniSDK: GiniSDK?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Set up GiniSDK with your credentials
+        let builder = GINISDKBuilder.anonymousUserWithClientID("your_gini_client_id", clientSecret: "your_gini_client_secret", userEmailDomain: "example.com")
+        self.giniSDK = builder.build();
+        
+        // Set the GiniVision version so it is viewable in the settings application
+        NSUserDefaults.standardUserDefaults().setObject(GINIVISION_VERSION, forKey: "giniVisionVersion")
+        
         return true
     }
 
