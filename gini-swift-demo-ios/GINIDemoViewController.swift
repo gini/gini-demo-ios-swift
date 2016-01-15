@@ -44,6 +44,60 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
         GiniVision.setLogLevel(GINILogLevel.None)
         GiniVision.captureImageWithViewController(self, delegate: self)
     }
+    
+    func useCustomGiniConfiguration() {
+        let configuration = GiniConfiguration()
+        
+        // Options
+        configuration.launchDocumentType = .Default // Remember 'GINIDocumentTypeDefault' does NOT skip the choice screen.
+        configuration.showHelp = false
+        configuration.disableInteractiveSwipeGesture = false
+        configuration.navigationShadowImage = nil
+        configuration.navigationBackButtonImage = nil
+        configuration.choiceHeadingTextSize = 34.0
+        configuration.outlineWidth = 5.0
+        configuration.helpButtonImage = nil
+        configuration.helpCloseButtonPosition = .NavBarRight
+        configuration.helpCloseButtonRemoveSpacing = false
+        configuration.closeButtonImage = nil
+        configuration.uploadActivityIndicatorPosition = .NavBarLeft
+        configuration.customActivityIndicatorImage = nil
+        
+        // Colors
+        configuration.navigationTintColor = UIColor(red: (28/255.0), green: (141/255.0), blue: (214/255.0), alpha: 1.0)
+        configuration.navigationButtonsTintColor = nil
+        configuration.lightFontColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        configuration.darkFontColor = UIColor(red: (76/255.0), green: (76/255.0), blue: (76/255.0), alpha: 1.0)
+        configuration.actionFontColor = UIColor(red: (28/255.0), green: (141/255.0), blue: (214/255.0), alpha: 1.0)
+        configuration.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        configuration.outlineColor = UIColor(red: (0/255.0), green: (255/255.0), blue: (0/255.0), alpha: 1.0)
+        configuration.helpViewBackgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        configuration.uploadCancelButtonBackgroundColor = UIColor(red: (28/255.0), green: (141/255.0), blue: (214/255.0), alpha: 1.0)
+        
+        // Fonts
+        configuration.navigationFont = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+        configuration.textFont = UIFont(name: "HelveticaNeue", size: 16.0)
+        configuration.buttonFont = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
+        
+        // Texts
+        configuration.choiceTitle = "Foto-Überweisung"
+        configuration.scannerTitle = "Foto-Überweisung"
+        configuration.scannerTitleInvoice = "Foto-Überweisung"
+        configuration.scannerTitleRemittance = "Foto-Überweisung"
+        configuration.scannerTitleIntegratedRemittance = "Foto-Überweisung"
+        configuration.helpTitle = "Hilfe"
+        configuration.uploadTitle = "Foto-Überweisung"
+        configuration.choiceHeadingText = "Welcher Dokument-Typ?"
+        configuration.help1Text = "Foto wird automatisch ausgelöst sobald Dokument an Ecken ausgerichtet ist."
+        configuration.help2Text = "Gerät parallel über das Dokument halten."
+        configuration.help3Text = "Dokument auf dunklen Hintergrund platzieren."
+        configuration.help4Text = "Dokument muss glatt sein, damit Text gut ausgelesen werden kann."
+        configuration.uploadCancelButtonTitle = "Abbrechen"
+        configuration.cameraAuthErrorTitle = "Kein Kamerazugriff erlaubt"
+        configuration.cameraAuthErrorText = "Bitte aktivieren Sie unter Einstellungen > Datenschutz > Kamera die Zugriffsrechte für diese Anwendung."
+        
+        GiniVision.captureImageWithViewController(self, delegate: self, configuration: configuration)
+    }
 
     // MARK: GiniVisionDelegate
     func didScan(document: UIImage!, documentType docType: GINIDocumentType, uploadDelegate delegate: GINIVisionUploadDelegate!) {
