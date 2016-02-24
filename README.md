@@ -3,7 +3,7 @@ GiniVision SDK for iOS Swift Example App
 
 This is an example app for the GiniVision SDK for iOS in Swift.
 Over there you can find our [example app in Objective-C](https://github.com/gini/gini-demo-ios/). Also see
-http://developer.gini.net/ginivision-ios/html/index.html for further documentation.
+http://developer.gini.net/ginivision-ios/ for further documentation.
 
 Before You Can Run The App
 --------------------------
