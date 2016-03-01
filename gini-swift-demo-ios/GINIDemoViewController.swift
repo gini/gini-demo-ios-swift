@@ -96,7 +96,6 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
             return task.result
         }).continueWithSuccessBlock({ (task: BFTask!) -> AnyObject! in
             if let documentData = documentJPEGData {
-                // Set 'createJPEGDocumentWithMetaData' to 'true' to make use of binary data analysis
                 return manager?.createDocumentWithFilename(fileName, fromData: documentData, docType: docTypeString)
             } else {
                 return manager?.createDocumentWithFilename(fileName, fromImage: document, docType: docTypeString)
