@@ -37,16 +37,21 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
     func startGiniVisionModule(sender: AnyObject) {
         /**
         * If you'd like to configure the module check out the [documentation](http://developer.gini.net/ginivision-ios/guides/style-the-module.html) for more information.
-        * There it will be described how to use the `GiniConfiguration` class.
-        *
-        * To keep this code clean and simple we'll go with the standard configuration.
+        * There it will be described how to make further use of the `GiniConfiguration` class.
         */
+        let config = GiniConfiguration.sharedConfiguration()
+        config.createJPEGDocumentWithMetaData = true
         GiniVision.setLogLevel(GINILogLevel.None)
         GiniVision.captureImageWithViewController(self, delegate: self)
     }
 
     // MARK: GiniVisionDelegate
     func didScan(document: UIImage!, documentType docType: GINIDocumentType, uploadDelegate delegate: GINIVisionUploadDelegate!) {
+        // Deprecated and will be removed in future release
+        // Keep in code because currently required by delegate
+    }
+    
+    func didScan(document: UIImage!, documentJPEGData: NSData!, documentType docType: GINIDocumentType, uploadDelegate delegate: GINIVisionUploadDelegate!) {
         // Rectified and processed image created by the Gini Vision Module
         
         // If set, save the processed image
@@ -69,6 +74,17 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
         // Create a file name for the document
         let fileName = "your_filename";
         
+        // Get the doctype from given enum
+        let docTypeString: String!
+        switch docType {
+        case .Invoice:
+            docTypeString = "Invoice"
+            break
+        default:
+            docTypeString = "RemittanceSlip"
+            break
+        }
+        
         var giniDocument: GINIDocument?
         var documentId: String?
         var extractions: Dictionary<String, GINIExtraction>?
@@ -79,7 +95,11 @@ class GINIDemoViewController: UIViewController, GiniVisionDelegate {
             }
             return task.result
         }).continueWithSuccessBlock({ (task: BFTask!) -> AnyObject! in
-            return manager?.createDocumentWithFilename(fileName, fromImage: document)
+            if let documentData = documentJPEGData {
+                return manager?.createDocumentWithFilename(fileName, fromData: documentData, docType: docTypeString)
+            } else {
+                return manager?.createDocumentWithFilename(fileName, fromImage: document, docType: docTypeString)
+            }
         }).continueWithSuccessBlock({ (task: BFTask!) -> AnyObject! in
             delegate.didProgressWithMessage("Analyse document")
             giniDocument = task.result as? GINIDocument
